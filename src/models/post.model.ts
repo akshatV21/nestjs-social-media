@@ -19,7 +19,7 @@ export class Post {
   likes: User[]
 
   @Prop({ default: [], ref: 'Comment' })
-  comments: []
+  comments: Comment[]
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post)
