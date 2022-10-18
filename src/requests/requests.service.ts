@@ -80,15 +80,15 @@ export class RequestsService {
   }
 
   private getFollowIndexes(user: UserDocument, userToUnfollow: UserDocument) {
-    const followingIndex = user.followings.findIndex((currUser) => currUser === userToUnfollow._id)
-    const followerIndex = userToUnfollow.followers.findIndex((currUser) => currUser === user._id)
+    const followingIndex = user.followings.findIndex(currUser => currUser === userToUnfollow._id)
+    const followerIndex = userToUnfollow.followers.findIndex(currUser => currUser === user._id)
     return { followingIndex, followerIndex }
   }
 
   // getting request indexes
   private getRequestIndexes(user: UserDocument, request: RequestDocument, userRequestTo: UserDocument) {
-    const requestSentIndex = user.requests_sent.findIndex((req) => req === request._id)
-    const requestRecievedIndex = userRequestTo.requests_recieved.findIndex((req) => req === request._id)
+    const requestSentIndex = user.requests_sent.findIndex(req => req === request._id)
+    const requestRecievedIndex = userRequestTo.requests_recieved.findIndex(req => req === request._id)
     return { requestSentIndex, requestRecievedIndex }
   }
 
