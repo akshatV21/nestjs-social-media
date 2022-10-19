@@ -4,6 +4,7 @@ import { Model } from 'mongoose'
 import { Comment, CommentDocument } from 'src/models/comment,model'
 import { Post, PostDocument } from 'src/models/post.model'
 import { CreateComment } from './dtos/CreateComment.dto'
+import { ReplyComment } from './dtos/ReplyComment.dto'
 
 @Injectable()
 export class CommentsService {
@@ -18,6 +19,15 @@ export class CommentsService {
 
     post.comments.push(comment._id)
     await Promise.all([comment.save(), post.save()])
+    return comment
+  }
+
+  async reply(commentPayload: ReplyComment, userId: string) {
+    const comment = new this.CommentModel({ ...commentPayload, user: userId })
+    const parentComment = await this.CommentModel.findById(comment.parent)
+
+    parentComment.replies.push(comment._id)
+    await Promise.all([parentComment.save(), comment.save()])
     return comment
   }
 }
