@@ -35,4 +35,10 @@ export class CommentsService {
     const comments = await this.CommentModel.find({ _id: id, parent: null }).populate('user', 'username dp')
     return comments
   }
+
+  async getReplies(id: string) {
+    const comment = await this.CommentModel.findById(id)
+    const replies = await comment.populate({ path: 'replies', populate: { path: 'user', select: 'username dp' } })
+    return replies
+  }
 }
