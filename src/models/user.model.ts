@@ -2,7 +2,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
 import { hashSync } from 'bcrypt'
 import { ACC_TYPE } from 'src/utils/AccType'
-import { Request } from './Request.mode'
+import { Request } from './request.mode'
 import { Post } from './post.model'
 
 export type UserDocument = User & Document

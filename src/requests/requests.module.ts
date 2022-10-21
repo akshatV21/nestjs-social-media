@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { RequestsService } from './requests.service'
 import { RequestsController } from './requests.controller'
 import { MongooseModule } from '@nestjs/mongoose'
-import { Request, RequestSchema } from 'src/models/Request.mode'
+import { Request, RequestSchema } from 'src/models/request.mode'
 import { User, UserSchema } from 'src/models/user.model'
 
 @Module({

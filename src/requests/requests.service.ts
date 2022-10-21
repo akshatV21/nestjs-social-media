@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { Request, RequestDocument } from 'src/models/Request.mode'
+import { Request, RequestDocument } from 'src/models/request.mode'
 import { User, UserDocument } from 'src/models/user.model'
 import { ACC_TYPE } from 'src/utils/AccType'
 import { REQ_STATUS } from 'src/utils/RequestStatus'
