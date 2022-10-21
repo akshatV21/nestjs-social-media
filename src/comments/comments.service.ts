@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { Comment, CommentDocument } from 'src/models/comment,model'
+import { Comment, CommentDocument } from 'src/models/comment.model'
 import { Post, PostDocument } from 'src/models/post.model'
 import { CreateComment } from './dtos/CreateComment.dto'
 import { ReplyComment } from './dtos/ReplyComment.dto'
@@ -29,5 +29,10 @@ export class CommentsService {
     parentComment.replies.push(comment._id)
     await Promise.all([parentComment.save(), comment.save()])
     return comment
+  }
+
+  async getPostComments(id: string) {
+    const comments = await this.CommentModel.find({ _id: id, parent: null }).populate('user', 'username dp')
+    return comments
   }
 }

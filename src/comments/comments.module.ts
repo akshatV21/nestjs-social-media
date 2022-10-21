@@ -4,7 +4,7 @@ import { CommentsController } from './comments.controller'
 import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/models/user.model'
 import { Post, PostSchema } from 'src/models/post.model'
-import { CommentSchema } from 'src/models/comment,model'
+import { CommentSchema } from 'src/models/comment.model'
 
 @Module({
   imports: [
